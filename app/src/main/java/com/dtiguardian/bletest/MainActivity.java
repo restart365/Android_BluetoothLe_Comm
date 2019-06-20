@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_ENABLE_BT = 1;
 
     private ListView lvDevices;
-    private Button btnScan, btnSend;
+    private Button btnScan, btnSend, btnDisconnect;
     private TextView tvStatus;
     private EditText etInput;
 
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         lvDevices = findViewById(R.id.lvDevices);
         btnScan = findViewById(R.id.btnScan);
         btnSend = findViewById(R.id.btnSend);
+        btnDisconnect = findViewById(R.id.btnDisconnect);
         tvStatus = findViewById(R.id.tvStatus);
         etInput = findViewById(R.id.etInput);
 
@@ -73,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
                             updateUI(devices);
                         }
                     });
+                }
+            }
+        });
+
+        btnDisconnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(bleHelper.isConnected()){
+                    bleHelper.disconnectBluetoothLeDevice();
+                    updateStatus("Disconnected");
                 }
             }
         });

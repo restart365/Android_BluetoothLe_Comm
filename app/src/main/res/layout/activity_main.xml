@@ -13,6 +13,12 @@
         android:text="Scan"
         android:id="@+id/btnScan"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disconnect"
+        android:id="@+id/btnDisconnect"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

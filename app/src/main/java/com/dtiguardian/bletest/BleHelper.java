@@ -107,13 +107,13 @@ public class BleHelper {
             @Override
             public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
                 gatt.readCharacteristic(characteristic);
-                cb.onReadWrite(gatt.getDevice().getName() + " write successfully");
+                cb.onReadWrite(gatt.getDevice().getName() + " write successfully at " + String.valueOf(System.currentTimeMillis()));
             }
 
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
                 String response = new String(characteristic.getValue());
-                cb.onReadWrite("The response is "+ response);
+                cb.onReadWrite("The response is "+ response + " at " + String.valueOf(System.currentTimeMillis()));
             }
 
 
